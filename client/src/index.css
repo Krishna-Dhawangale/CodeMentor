@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base Reset ─────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #0f0f1a;
+  color: #e2e8f0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar Styling ───────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+
+/* ── Background Mesh Gradient ────────────────────────────────────────────────── */
+.bg-mesh {
+  background-color: #0f0f1a;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+}
+
+/* ── Glass Card ─────────────────────────────────────────────────────────────── */
+.glass {
+  background: rgba(30, 30, 53, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 16px;
+}
+
+.glass-light {
+  background: rgba(37, 37, 64, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  border-radius: 12px;
+}
+
+/* ── Glow Effects ────────────────────────────────────────────────────────────── */
+.glow-brand {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3), 0 0 60px rgba(99, 102, 241, 0.1);
+}
+
+.glow-success {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.glow-error {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+/* ── Gradient Text ───────────────────────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Loading Shimmer ─────────────────────────────────────────────────────────── */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.04) 25%,
+    rgba(255,255,255,0.08) 50%,
+    rgba(255,255,255,0.04) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* ── Code Diff Styling ───────────────────────────────────────────────────────── */
+.diff-line-before {
+  background: rgba(239, 68, 68, 0.12);
+  border-left: 3px solid #ef4444;
+  color: #fca5a5;
+}
+
+.diff-line-after {
+  background: rgba(16, 185, 129, 0.12);
+  border-left: 3px solid #10b981;
+  color: #6ee7b7;
+}
+
+/* ── Markdown Prose ──────────────────────────────────────────────────────────── */
+.prose-chat {
+  color: #e2e8f0;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.prose-chat h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #a5b4fc;
+  margin: 1.2rem 0 0.5rem;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.prose-chat h2:first-child {
+  margin-top: 0;
+}
+
+.prose-chat p {
+  margin: 0 0 0.75rem;
+}
+
+.prose-chat code {
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85em;
+  color: #c7d2fe;
+}
+
+.prose-chat pre {
+  background: #12121f;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 10px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 0.75rem 0;
+}
+
+.prose-chat pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 0.875rem;
+  color: #e2e8f0;
+}
+
+.prose-chat strong {
+  color: #c7d2fe;
+  font-weight: 600;
+}
+
+.prose-chat ul, .prose-chat ol {
+  padding-left: 1.5rem;
+  margin: 0 0 0.75rem;
+}
+
+.prose-chat li {
+  margin-bottom: 0.3rem;
+}
+
+/* ── CodeMirror Overrides ────────────────────────────────────────────────────── */
+.cm-editor {
+  border-radius: 10px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 14px !important;
+}
+
+.cm-editor.cm-focused {
+  outline: 2px solid rgba(99, 102, 241, 0.5) !important;
+  outline-offset: 0 !important;
+}
+
+.cm-scroller {
+  border-radius: 10px !important;
+}
